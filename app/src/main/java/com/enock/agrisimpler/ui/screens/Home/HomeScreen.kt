@@ -1,6 +1,6 @@
 package com.enock.agrisimpler.ui.screens.Home
 
-import android.content.Intent
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -13,20 +13,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -45,29 +43,26 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.enock.agrisimpler.R
 import com.enock.agrisimpler.navigation.ROUT_COMMUNITY
 import com.enock.agrisimpler.navigation.ROUT_HOME
-import com.enock.agrisimpler.navigation.ROUT_ITEM
 import com.enock.agrisimpler.navigation.ROUT_MANAGEMENT
 import com.enock.agrisimpler.navigation.ROUT_MARKET
 import com.enock.agrisimpler.navigation.ROUT_PRODUCT
 import com.enock.agrisimpler.navigation.ROUT_WEATHER
 import com.enock.agrisimpler.ui.theme.newOrange
+import com.enock.agrisimpler.ui.theme.newWhite
 import com.enock.agrisimpler.ui.theme.newgreen
+import com.enock.agrisimpler.ui.theme.newscarl
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -152,6 +147,7 @@ fun HomeScreen(navController: NavController){
                 modifier = Modifier
                     .padding(paddingValues)
                     .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
             ) {
 
 
@@ -173,7 +169,7 @@ fun HomeScreen(navController: NavController){
 
                 Image(
                     painter = painterResource(R.drawable.farmer1),
-                    contentDescription = "vom",
+                    contentDescription = "agri",
                     modifier = Modifier.fillMaxWidth().height(200.dp),
                     contentScale = ContentScale.FillWidth
 
@@ -188,16 +184,23 @@ fun HomeScreen(navController: NavController){
                     //Card1
                     Card (
                         modifier = Modifier.width(150.dp).height(180.dp).clickable { navController.navigate(
-                            ROUT_HOME) }
+                            ROUT_HOME) },
+                        colors = CardColors(
+                            newscarl,
+                            contentColor = newWhite,
+                            disabledContainerColor = newOrange,
+                            disabledContentColor = newWhite
+                        )
                     ){
                         Column (
                             modifier = Modifier.fillMaxSize(),
                             horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center
+                            verticalArrangement = Arrangement.Center,
+
                         ){
                             Image(
                                 painter = painterResource(R.drawable.splashicon),
-                                contentDescription = "shopping",
+                                contentDescription = "home",
                                 modifier = Modifier.size(100.dp)
                             )
                             Text(text = "Home", fontSize = 15.sp)
@@ -219,9 +222,10 @@ fun HomeScreen(navController: NavController){
                         ){
                             Image(
                                 painter = painterResource(R.drawable.product1),
-                                contentDescription = "shopping",
+                                contentDescription = "products",
                                 modifier = Modifier.size(100.dp)
                             )
+
                             Text(text = "Products", fontSize = 15.sp)
                         }
                     }
@@ -248,7 +252,7 @@ fun HomeScreen(navController: NavController){
                         ){
                             Image(
                                 painter = painterResource(R.drawable.market),
-                                contentDescription = "shopping",
+                                contentDescription = "market",
                                 modifier = Modifier.size(100.dp)
                             )
                             Text(text = "Market", fontSize = 15.sp)
@@ -268,7 +272,7 @@ fun HomeScreen(navController: NavController){
                         ){
                             Image(
                                 painter = painterResource(R.drawable.management),
-                                contentDescription = "shopping",
+                                contentDescription = "management",
                                 modifier = Modifier.size(100.dp)
                             )
                             Text(text = "Management", fontSize = 15.sp)
@@ -292,7 +296,7 @@ fun HomeScreen(navController: NavController){
                         ){
                             Image(
                                 painter = painterResource(R.drawable.weather),
-                                contentDescription = "shopping",
+                                contentDescription = "weather",
                                 modifier = Modifier.size(100.dp)
                             )
                             Text(text = "Weather updates", fontSize = 15.sp)
@@ -312,7 +316,7 @@ fun HomeScreen(navController: NavController){
                         ){
                             Image(
                                 painter = painterResource(R.drawable.community),
-                                contentDescription = "shopping",
+                                contentDescription = "community",
                                 modifier = Modifier.size(100.dp)
                             )
                             Text(text = "Community/Share ideas", fontSize = 15.sp)

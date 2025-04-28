@@ -20,6 +20,7 @@ import com.enock.agrisimpler.R
 import com.enock.agrisimpler.navigation.ROUT_START
 
 import com.enock.agrisimpler.ui.theme.newblue
+import com.enock.agrisimpler.ui.theme.newgreen2
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -37,14 +38,14 @@ fun SplashScreen(navController: NavController){
     Column (
         modifier = Modifier
             .fillMaxSize()
-            .background(newblue),
+            .background(newgreen2),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
 
     ){
         Image(
-            painter = painterResource(R.drawable.cart),
-            contentDescription = "shopping",
+            painter = painterResource(R.drawable.appicon),
+            contentDescription = "app",
             modifier = Modifier.size(300.dp)
         )
 

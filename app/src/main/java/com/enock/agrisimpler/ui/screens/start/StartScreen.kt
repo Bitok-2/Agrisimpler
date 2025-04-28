@@ -19,7 +19,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -43,14 +42,14 @@ fun StartScreen(navController: NavController){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
-        Text(text = "ZawadiMart")
+        Text(text = "AgriSimpler")
 
         Spacer(modifier = Modifier.height(20.dp))
 
         //Circular image
         Image(
             painter = painterResource(R.drawable.appicon),
-            contentDescription = "shopping",
+            contentDescription = "app",
             modifier = Modifier.size(300.dp).clip(shape = CircleShape),
             contentScale = ContentScale.Crop
         )
@@ -58,7 +57,7 @@ fun StartScreen(navController: NavController){
         Spacer(modifier = Modifier.height(20.dp))
 
 
-        Text(text = "Find you order!!",
+        Text(text = "welcome and connnect!!",
             fontSize = 30.sp,
             fontWeight = FontWeight.ExtraBold,
             color = newOrange
@@ -67,7 +66,7 @@ fun StartScreen(navController: NavController){
 
         )
         Spacer(modifier = Modifier.height(20.dp))
-        Text(text = "Has all the information you need on what to buy and where to buy it; ranging from upmarket and modern malls to exemplary artifacts ...\n",
+        Text(text = "Focused on connecting farmers worldwide and also providing technological support Welcome All",
             fontSize = 18.sp,
             textAlign = TextAlign.Center
 
