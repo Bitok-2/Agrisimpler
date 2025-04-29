@@ -2,6 +2,7 @@ package com.enock.agrisimpler.ui.screens.start
 
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -28,22 +29,30 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.enock.agrisimpler.navigation.ROUT_HOME
-
-
 import com.enock.agrisimpler.R
+import com.enock.agrisimpler.navigation.ROUT_HOME
 import com.enock.agrisimpler.ui.theme.newOrange
+import com.enock.agrisimpler.ui.theme.newgreen2
+import com.enock.agrisimpler.ui.theme.newyellow
 
 @Composable
 fun StartScreen(navController: NavController){
-    navController.navigate(ROUT_HOME)
-    Column (
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ){
-        Text(text = "AgriSimpler")
 
+    Column (
+        modifier = Modifier.fillMaxSize().background(color = newyellow),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+
+    ){
+
+        Text(text = "Welcome",
+            fontSize = 50.sp,
+            fontWeight = FontWeight.ExtraBold,
+            color = newOrange
+
+
+
+        )
         Spacer(modifier = Modifier.height(20.dp))
 
         //Circular image
@@ -57,14 +66,7 @@ fun StartScreen(navController: NavController){
         Spacer(modifier = Modifier.height(20.dp))
 
 
-        Text(text = "welcome and connnect!!",
-            fontSize = 30.sp,
-            fontWeight = FontWeight.ExtraBold,
-            color = newOrange
 
-
-
-        )
         Spacer(modifier = Modifier.height(20.dp))
         Text(text = "Focused on connecting farmers worldwide and also providing technological support Welcome All",
             fontSize = 18.sp,
@@ -79,7 +81,7 @@ fun StartScreen(navController: NavController){
             onClick = {
                 navController.navigate(ROUT_HOME)
             },
-            colors = ButtonDefaults.buttonColors(newOrange),
+            colors = ButtonDefaults.buttonColors(newgreen2),
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)
         ) {
