@@ -22,6 +22,7 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
@@ -43,6 +44,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -62,6 +64,7 @@ import com.enock.agrisimpler.navigation.ROUT_WEATHER
 import com.enock.agrisimpler.ui.theme.newOrange
 import com.enock.agrisimpler.ui.theme.newWhite
 import com.enock.agrisimpler.ui.theme.newgreen
+import com.enock.agrisimpler.ui.theme.newgreen2
 import com.enock.agrisimpler.ui.theme.newscarl
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -85,7 +88,7 @@ fun HomeScreen(navController: NavController){
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = newgreen,
+                    containerColor = newgreen2,
                     titleContentColor = Color.White,
                     navigationIconContentColor = Color.White
                 )
@@ -95,19 +98,19 @@ fun HomeScreen(navController: NavController){
         //BottomBar
         bottomBar = {
             NavigationBar(
-                containerColor = newgreen
+                containerColor = newgreen2
             ){
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
-                    label = { Text("Home") },
+                    label = { Text("Home", color = Color.White, fontSize = 20.sp) },
                     selected = selectedIndex == 0,
                     onClick = { selectedIndex = 0
                         navController.navigate(ROUT_HOME)
                     }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Star, contentDescription = "Services") },
-                    label = { Text("Services") },
+                    icon = { Icon(Icons.Default.ShoppingCart, contentDescription = "Services") },
+                    label = { Text("Services",color = Color.White, fontSize = 20.sp) },
                     selected = selectedIndex == 1,
                     onClick = { selectedIndex = 1
                         navController.navigate(ROUT_PRODUCT)
@@ -115,7 +118,7 @@ fun HomeScreen(navController: NavController){
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    label = { Text("Profile") },
+                    label = { Text("Profile",color = Color.White, fontSize = 20.sp) },
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
                         //  navController.navigate(ROUT_HOME)
@@ -123,7 +126,7 @@ fun HomeScreen(navController: NavController){
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Info, contentDescription = "Info") },
-                    label = { Text("More...") },
+                    label = { Text("More...",color = Color.White, fontSize = 20.sp) },
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
                         //  navController.navigate(ROUT_HOME)
@@ -193,19 +196,19 @@ fun HomeScreen(navController: NavController){
                         )
                     ){
                         Column (
-                            modifier = Modifier.fillMaxSize(),
+                            modifier = Modifier.fillMaxSize()
+                                .paint(painter = painterResource(R.drawable.bgimage3), contentScale = ContentScale.FillBounds)
+                            ,
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center,
 
                         ){
-                            Image(
-                                painter = painterResource(R.drawable.splashicon),
-                                contentDescription = "home",
-                                modifier = Modifier.size(100.dp)
-                            )
                             Text(text = "Home", fontSize = 15.sp)
+
+
                         }
                     }
+
                     //End of Card1
                     Spacer(modifier = Modifier.width(20.dp))
 
@@ -216,15 +219,11 @@ fun HomeScreen(navController: NavController){
                             ROUT_PRODUCT) }
                     ){
                         Column (
-                            modifier = Modifier.fillMaxSize(),
+                            modifier = Modifier.fillMaxSize()
+                                .paint(painter = painterResource(R.drawable.product2), contentScale = ContentScale.FillBounds),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ){
-                            Image(
-                                painter = painterResource(R.drawable.product1),
-                                contentDescription = "products",
-                                modifier = Modifier.size(100.dp)
-                            )
 
                             Text(text = "Products", fontSize = 15.sp)
                         }
@@ -246,15 +245,12 @@ fun HomeScreen(navController: NavController){
                         modifier = Modifier.width(150.dp).height(180.dp)
                     ){
                         Column (
-                            modifier = Modifier.fillMaxSize(),
+                            modifier = Modifier.fillMaxSize()
+                                .paint(painter = painterResource(R.drawable.market), contentScale = ContentScale.FillBounds),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ){
-                            Image(
-                                painter = painterResource(R.drawable.market),
-                                contentDescription = "market",
-                                modifier = Modifier.size(100.dp)
-                            )
+
                             Text(text = "Market", fontSize = 15.sp)
                         }
                     }
@@ -266,15 +262,12 @@ fun HomeScreen(navController: NavController){
                             ROUT_MANAGEMENT) }
                     ){
                         Column (
-                            modifier = Modifier.fillMaxSize(),
+                            modifier = Modifier.fillMaxSize()
+                                .paint(painter = painterResource(R.drawable.management), contentScale = ContentScale.FillBounds),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ){
-                            Image(
-                                painter = painterResource(R.drawable.management),
-                                contentDescription = "management",
-                                modifier = Modifier.size(100.dp)
-                            )
+
                             Text(text = "Management", fontSize = 15.sp)
                         }
                     }
@@ -290,15 +283,12 @@ fun HomeScreen(navController: NavController){
                             ROUT_WEATHER) }
                     ){
                         Column (
-                            modifier = Modifier.fillMaxSize(),
+                            modifier = Modifier.fillMaxSize()
+                                .paint(painter = painterResource(R.drawable.weather), contentScale = ContentScale.FillBounds),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ){
-                            Image(
-                                painter = painterResource(R.drawable.weather),
-                                contentDescription = "weather",
-                                modifier = Modifier.size(100.dp)
-                            )
+
                             Text(text = "Weather updates", fontSize = 15.sp)
                         }
                     }
@@ -310,15 +300,12 @@ fun HomeScreen(navController: NavController){
                             ROUT_COMMUNITY) }
                     ){
                         Column (
-                            modifier = Modifier.fillMaxSize(),
+                            modifier = Modifier.fillMaxSize()
+                                .paint(painter = painterResource(R.drawable.community), contentScale = ContentScale.FillBounds),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ){
-                            Image(
-                                painter = painterResource(R.drawable.community),
-                                contentDescription = "community",
-                                modifier = Modifier.size(100.dp)
-                            )
+
                             Text(text = "Community/Share ideas", fontSize = 15.sp)
                         }
                     }
