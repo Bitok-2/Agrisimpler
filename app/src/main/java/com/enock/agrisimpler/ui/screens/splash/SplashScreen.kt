@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.enock.agrisimpler.R
+import com.enock.agrisimpler.navigation.ROUT_LOGIN
 import com.enock.agrisimpler.navigation.ROUT_START
 
 import com.enock.agrisimpler.ui.theme.newblue
@@ -31,7 +32,7 @@ fun SplashScreen(navController: NavController){
     val coroutine = rememberCoroutineScope()
     coroutine.launch {
         delay(3000)
-        navController.navigate(ROUT_START)
+        navController.navigate(ROUT_LOGIN)
     }
 
     //End of Navigation

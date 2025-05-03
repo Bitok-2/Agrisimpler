@@ -59,7 +59,7 @@ import com.enock.agrisimpler.navigation.ROUT_COMMUNITY
 import com.enock.agrisimpler.navigation.ROUT_HOME
 import com.enock.agrisimpler.navigation.ROUT_MANAGEMENT
 import com.enock.agrisimpler.navigation.ROUT_MARKET
-import com.enock.agrisimpler.navigation.ROUT_PRODUCT
+import com.enock.agrisimpler.navigation.ROUT_PRODUCT_LIST
 import com.enock.agrisimpler.navigation.ROUT_WEATHER
 import com.enock.agrisimpler.ui.theme.newOrange
 import com.enock.agrisimpler.ui.theme.newWhite
@@ -110,10 +110,10 @@ fun HomeScreen(navController: NavController){
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.ShoppingCart, contentDescription = "Services") },
-                    label = { Text("Services",color = Color.White, fontSize = 20.sp) },
+                    label = { Text("Products",color = Color.White, fontSize = 20.sp) },
                     selected = selectedIndex == 1,
                     onClick = { selectedIndex = 1
-                        navController.navigate(ROUT_PRODUCT)
+                        navController.navigate(ROUT_PRODUCT_LIST)
                     }
                 )
                 NavigationBarItem(
@@ -216,7 +216,7 @@ fun HomeScreen(navController: NavController){
                     //Card2
                     Card (
                         modifier = Modifier.width(150.dp).height(180.dp).clickable { navController.navigate(
-                            ROUT_PRODUCT) }
+                            ROUT_PRODUCT_LIST) }
                     ){
                         Column (
                             modifier = Modifier.fillMaxSize()

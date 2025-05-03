@@ -26,7 +26,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.enock.agrisimpler.R
 import com.enock.agrisimpler.navigation.ROUT_DASHBOARD
-import com.enock.agrisimpler.navigation.ROUT_PRODUCT
+import com.enock.agrisimpler.navigation.ROUT_HOME
+
 
 import com.enock.agrisimpler.navigation.ROUT_REGISTER
 import com.enock.agrisimpler.viewmodel.AuthViewModel
@@ -49,7 +50,7 @@ fun LoginScreen(
                 Toast.makeText(context, "Invalid Credentials", Toast.LENGTH_SHORT).show()
             } else {
                 if (user.role == "admin") {
-                    navController.navigate(ROUT_PRODUCT) {
+                    navController.navigate(ROUT_HOME) {
                     }
                 } else {
                     navController.navigate(ROUT_DASHBOARD) {
