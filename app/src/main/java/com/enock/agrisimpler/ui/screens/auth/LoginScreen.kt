@@ -30,6 +30,7 @@ import com.enock.agrisimpler.navigation.ROUT_HOME
 
 
 import com.enock.agrisimpler.navigation.ROUT_REGISTER
+import com.enock.agrisimpler.navigation.ROUT_WELCOME
 import com.enock.agrisimpler.viewmodel.AuthViewModel
 
 @Composable
@@ -50,7 +51,7 @@ fun LoginScreen(
                 Toast.makeText(context, "Invalid Credentials", Toast.LENGTH_SHORT).show()
             } else {
                 if (user.role == "admin") {
-                    navController.navigate(ROUT_HOME) {
+                    navController.navigate(ROUT_WELCOME) {
                     }
                 } else {
                     navController.navigate(ROUT_DASHBOARD) {
