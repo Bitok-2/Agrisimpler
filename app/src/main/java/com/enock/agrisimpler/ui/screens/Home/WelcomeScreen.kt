@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -62,6 +63,7 @@ import com.enock.agrisimpler.navigation.ROUT_MANAGEMENT
 import com.enock.agrisimpler.navigation.ROUT_MARKET
 import com.enock.agrisimpler.navigation.ROUT_PRODUCT_LIST
 import com.enock.agrisimpler.navigation.ROUT_WEATHER
+import com.enock.agrisimpler.navigation.ROUT_WELCOME
 import com.enock.agrisimpler.ui.theme.newOrange
 import com.enock.agrisimpler.ui.theme.newgreen2
 import com.enock.agrisimpler.ui.theme.newgreen3
@@ -70,7 +72,9 @@ import com.enock.agrisimpler.ui.theme.newgreen3
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WelcomeScreen(navController: NavController){
-    Column (modifier = Modifier.fillMaxSize().background(Color.White)){
+    Column (modifier = Modifier.fillMaxSize().background(Color.White)
+        .paint(painter = painterResource(R.drawable.bgimage4), contentScale = ContentScale.FillBounds)
+    ){
 
         //Scaffold
         val mContext = LocalContext.current
@@ -106,7 +110,7 @@ fun WelcomeScreen(navController: NavController){
                         label = { Text("Home", color = Color.White, fontSize = 20.sp) },
                         selected = selectedIndex == 0,
                         onClick = { selectedIndex = 0
-                            navController.navigate(ROUT_HOME)
+                            navController.navigate(ROUT_WELCOME)
                         }
                     )
                     NavigationBarItem(
@@ -152,6 +156,8 @@ fun WelcomeScreen(navController: NavController){
                         .padding(paddingValues)
                         .fillMaxSize()
                         .verticalScroll(rememberScrollState())
+                        .paint(painter = painterResource(R.drawable.bgimage4), contentScale = ContentScale.FillBounds)
+
 
                 ){
                     Spacer(modifier = Modifier.height(20.dp))
@@ -160,6 +166,8 @@ fun WelcomeScreen(navController: NavController){
                         .fillMaxWidth()
                         .background(newgreen3)
                         .padding(16.dp),
+
+
 
 
                     ){
@@ -177,6 +185,7 @@ fun WelcomeScreen(navController: NavController){
                                 value = search,
                                 onValueChange = {search = it},
                                 modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp),
+                                shape = RoundedCornerShape(24.dp),
                                 leadingIcon = { Icon(imageVector = Icons.Default.Search, contentDescription = "") },
                                 placeholder = { Text(text = "Search...") }
 
@@ -199,18 +208,7 @@ fun WelcomeScreen(navController: NavController){
                     }
 
                     Spacer(Modifier.height(10.dp))
-                    Text("Commodities and Food", modifier = Modifier.padding(horizontal = 16.dp))
-                    LazyRow (modifier = Modifier.padding(8.dp)){
-                        items(listOf("Rice","Corn","Grapes","Potato","Olive")){item ->
-                            Card (modifier = Modifier
-                                .padding(8.dp)
-                                .clickable { navController.navigate(ROUT_MARKET) }){
-                                Box (modifier = Modifier.padding(16.dp)){
-                                    Text(item)
-                                }
-                            }
-                        }
-                    }
+
 
                     Spacer(Modifier.height(10.dp))
 
