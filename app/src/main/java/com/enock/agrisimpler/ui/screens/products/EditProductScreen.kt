@@ -101,6 +101,8 @@ fun EditProductScreen(productId: Int?, navController: NavController, viewModel: 
                     label = { Text("Product Name") },
                     modifier = Modifier.fillMaxWidth()
                 )
+
+
                 Spacer(modifier = Modifier.height(8.dp))
 
                 OutlinedTextField(
