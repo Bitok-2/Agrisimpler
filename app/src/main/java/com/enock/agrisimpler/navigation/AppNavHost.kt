@@ -16,15 +16,16 @@ import androidx.navigation.navArgument
 
 import com.enock.agrisimpler.data.UserDatabase
 import com.enock.agrisimpler.repository.UserRepository
-import com.enock.agrisimpler.ui.screens.Home.HomeScreen
+
 import com.enock.agrisimpler.ui.screens.Home.WelcomeScreen
+import com.enock.agrisimpler.ui.screens.Refer.ManagementScreen
 import com.enock.agrisimpler.ui.screens.auth.LoginScreen
 import com.enock.agrisimpler.ui.screens.auth.RegisterScreen
 import com.enock.agrisimpler.ui.screens.community.CommunityScreen
 import com.enock.agrisimpler.ui.screens.dashboard.DashboardScreen
 import com.enock.agrisimpler.ui.screens.management.AnalysisScreen
 import com.enock.agrisimpler.ui.screens.management.IrrigationScreen
-import com.enock.agrisimpler.ui.screens.management.ManagementScreen
+
 import com.enock.agrisimpler.ui.screens.market.MarketScreen
 import com.enock.agrisimpler.ui.screens.notifications.NotificationsScreen
 import com.enock.agrisimpler.ui.screens.products.AddProductScreen
@@ -53,9 +54,7 @@ fun AppNavHost(
         startDestination = startDestination,
         modifier = modifier
     ) {
-        composable(ROUT_HOME) {
-            HomeScreen(navController)
-        }
+
         composable(ROUT_START) {
             StartScreen (navController)
         }
@@ -107,7 +106,7 @@ fun AppNavHost(
 
         composable(ROUT_LOGIN) {
             LoginScreen(authViewModel, navController) {
-                navController.navigate(ROUT_HOME) {
+                navController.navigate(ROUT_WELCOME) {
                     popUpTo(ROUT_LOGIN) { inclusive = true }
                 }
             }

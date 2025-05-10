@@ -26,7 +26,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.enock.agrisimpler.R
 import com.enock.agrisimpler.navigation.ROUT_DASHBOARD
-import com.enock.agrisimpler.navigation.ROUT_HOME
 
 
 import com.enock.agrisimpler.navigation.ROUT_REGISTER

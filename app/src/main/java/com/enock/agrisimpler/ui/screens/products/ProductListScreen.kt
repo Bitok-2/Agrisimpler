@@ -41,8 +41,8 @@ import com.enock.agrisimpler.R
 import com.enock.agrisimpler.model.Product
 import com.enock.agrisimpler.navigation.ROUT_ADD_PRODUCT
 import com.enock.agrisimpler.navigation.ROUT_EDIT_PRODUCT
-import com.enock.agrisimpler.navigation.ROUT_HOME
 import com.enock.agrisimpler.navigation.ROUT_PRODUCT_LIST
+import com.enock.agrisimpler.navigation.ROUT_WELCOME
 import com.enock.agrisimpler.viewmodel.ProductViewModel
 import com.enock.agrisimpler.navigation.editProductRoute
 import java.io.IOException
@@ -344,7 +344,7 @@ fun BottomNavigationBar1(navController: NavController) {
     ) {
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate(ROUT_HOME) },
+            onClick = { navController.navigate(ROUT_WELCOME) },
             icon = { Icon(Icons.Default.Home, contentDescription = "Product List") },
             label = { Text("Home") }
         )

@@ -1,6 +1,6 @@
 package com.enock.agrisimpler.navigation
 
-const val ROUT_HOME = "home"
+
 const val ROUT_START = "start"
 const val ROUT_DASHBOARD = "dashboard"
 const val ROUT_MANAGEMENT = "management"

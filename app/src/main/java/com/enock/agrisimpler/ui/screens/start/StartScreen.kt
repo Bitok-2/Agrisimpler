@@ -30,7 +30,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.enock.agrisimpler.R
-import com.enock.agrisimpler.navigation.ROUT_HOME
+
+import com.enock.agrisimpler.navigation.ROUT_WELCOME
 import com.enock.agrisimpler.ui.theme.newOrange
 import com.enock.agrisimpler.ui.theme.newgreen2
 import com.enock.agrisimpler.ui.theme.newyellow
@@ -79,7 +80,7 @@ fun StartScreen(navController: NavController){
 
         Button(
             onClick = {
-                navController.navigate(ROUT_HOME)
+                navController.navigate(ROUT_WELCOME)
             },
             colors = ButtonDefaults.buttonColors(newgreen2),
             shape = RoundedCornerShape(10.dp),
