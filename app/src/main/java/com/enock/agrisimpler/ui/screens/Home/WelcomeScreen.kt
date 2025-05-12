@@ -127,19 +127,21 @@ fun WelcomeScreen(navController: NavController) {
                     }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    label = { Text("Profile", color = Color.White) },
+                    icon = { Icon(Icons.Default.List, contentDescription = "Profile") },
+                    label = { Text("Services", color = Color.White) },
                     selected = selectedIndex == 2,
                     onClick = {
                         selectedIndex = 2
+                        navController.navigate(ROUT_SERVICE)
                     }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Info, contentDescription = "More") },
-                    label = { Text("More...", color = Color.White) },
+                    icon = { Icon(Icons.Default.Star, contentDescription = "More") },
+                    label = { Text("Market", color = Color.White) },
                     selected = selectedIndex == 3,
                     onClick = {
                         selectedIndex = 3
+                        navController.navigate(ROUT_MARKET)
                     }
                 )
             }
@@ -169,7 +171,10 @@ fun WelcomeScreen(navController: NavController) {
                 images = listOf(
                     R.drawable.product2,
                     R.drawable.weather,
-                    R.drawable.market
+                    R.drawable.market,
+                    R.drawable.services2
+
+
                 )
             )
 
@@ -207,6 +212,7 @@ fun WelcomeScreen(navController: NavController) {
             HomeCard(R.drawable.market, "Market") { navController.navigate(ROUT_MARKET) }
             HomeCard(R.drawable.management, "Management") { navController.navigate(ROUT_MANAGEMENT) }
             HomeCard(R.drawable.community, "Community") { navController.navigate(ROUT_COMMUNITY) }
+            HomeCard(R.drawable.services2, "Services") { navController.navigate(ROUT_SERVICE) }
         }
     }
 }

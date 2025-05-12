@@ -18,7 +18,7 @@ import com.enock.agrisimpler.data.UserDatabase
 import com.enock.agrisimpler.repository.UserRepository
 
 import com.enock.agrisimpler.ui.screens.Home.WelcomeScreen
-import com.enock.agrisimpler.ui.screens.Refer.ManagementScreen
+
 import com.enock.agrisimpler.ui.screens.auth.LoginScreen
 import com.enock.agrisimpler.ui.screens.auth.RegisterScreen
 import com.enock.agrisimpler.ui.screens.community.CommunityScreen
@@ -31,6 +31,9 @@ import com.enock.agrisimpler.ui.screens.notifications.NotificationsScreen
 import com.enock.agrisimpler.ui.screens.products.AddProductScreen
 import com.enock.agrisimpler.ui.screens.products.EditProductScreen
 import com.enock.agrisimpler.ui.screens.products.ProductListScreen
+
+import com.enock.agrisimpler.ui.screens.management.ManagementScreen
+import com.enock.agrisimpler.ui.screens.market.ServiceScreen
 import com.enock.agrisimpler.ui.screens.splash.SplashScreen
 import com.enock.agrisimpler.ui.screens.start.StartScreen
 
@@ -88,6 +91,9 @@ fun AppNavHost(
         }
         composable(ROUT_WELCOME) {
             WelcomeScreen (navController)
+        }
+        composable(ROUT_SERVICE) {
+            ServiceScreen (navController)
         }
 
         //AUTHENTICATION

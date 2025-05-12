@@ -12,6 +12,7 @@ const val ROUT_NOTIFICATION = "notification"
 const val ROUT_COMMUNITY = "community"
 const val ROUT_WELCOME = "welcome"
 const val ROUT_SPLASH = "splash"
+const val ROUT_SERVICE = "service"
 
 
 //Authentication

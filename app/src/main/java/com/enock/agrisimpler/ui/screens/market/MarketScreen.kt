@@ -16,6 +16,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
@@ -44,6 +45,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,6 +59,7 @@ import com.enock.agrisimpler.R
 
 import com.enock.agrisimpler.navigation.ROUT_MARKET
 import com.enock.agrisimpler.navigation.ROUT_PRODUCT_LIST
+import com.enock.agrisimpler.navigation.ROUT_SERVICE
 import com.enock.agrisimpler.navigation.ROUT_WELCOME
 import com.enock.agrisimpler.ui.theme.newOrange
 import com.enock.agrisimpler.ui.theme.newgreen2
@@ -113,15 +116,15 @@ fun MarketScreen(navController: NavController){
                     }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    label = { Text("Profile",color = Color.White, fontSize = 20.sp) },
+                    icon = { Icon(Icons.Default.List, contentDescription = "Profile") },
+                    label = { Text("Services",color = Color.White, fontSize = 20.sp) },
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
-                        //  navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_SERVICE)
                     }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Star,contentDescription = "Info") },
+                    icon = { Icon(Icons.Default.Star,contentDescription = "market") },
                     label = { Text("Market",color = Color.White, fontSize = 20.sp) },
                     selected = selectedIndex == 2,
                     onClick = { selectedIndex = 2
@@ -162,13 +165,21 @@ fun MarketScreen(navController: NavController){
 
                 Spacer(modifier = Modifier.height(20.dp))
 
+
                 Spacer(modifier = Modifier.height(20.dp))
 
-                Column (modifier = Modifier.verticalScroll(rememberScrollState())){
+                Column {
 
                     //Row
 
+
                     //Vegetables
+
+
+                    Text(text = "VEGETABLES", fontSize = 40.sp, fontWeight = FontWeight.Bold, color = Color.Red, fontStyle = FontStyle.Italic)
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
                     Row (modifier = Modifier.padding(start = 20.dp)){
                         Image(
                             painter = painterResource(R.drawable.cabbages),
@@ -194,11 +205,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -246,11 +253,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                               Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -299,11 +302,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -350,11 +349,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -380,7 +375,7 @@ fun MarketScreen(navController: NavController){
 
                     //Fruits
                     Spacer(modifier = Modifier.height(40.dp))
-                    Text(text = "FRUITS", fontSize = 40.sp, fontWeight = FontWeight.Bold)
+                    Text(text = "FRUITS", fontSize = 40.sp, fontWeight = FontWeight.Bold, color = Color.Magenta)
 
                     Spacer(modifier = Modifier.height(20.dp))
                     //Row
@@ -409,11 +404,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -461,11 +452,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -513,11 +500,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -572,11 +555,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -624,11 +603,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -676,11 +651,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -728,11 +699,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -780,11 +747,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -832,11 +795,7 @@ fun MarketScreen(navController: NavController){
 
                                 )
                             Row {
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                             }
                             Button(
                                 onClick = {
@@ -861,7 +820,7 @@ fun MarketScreen(navController: NavController){
                 //Seeds
 
                 Spacer(modifier = Modifier.height(40.dp))
-                Text(text = "SEEDS", fontSize = 40.sp, fontWeight = FontWeight.Bold)
+                Text(text = "SEEDS", fontSize = 40.sp, fontWeight = FontWeight.Bold, color = Color.Blue)
 
                 Spacer(modifier = Modifier.height(20.dp))
 
@@ -891,11 +850,7 @@ fun MarketScreen(navController: NavController){
 
                             )
                         Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                            Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                         }
                         Button(
                             onClick = {
@@ -943,11 +898,7 @@ fun MarketScreen(navController: NavController){
 
                             )
                         Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                            Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                         }
                         Button(
                             onClick = {
@@ -995,11 +946,7 @@ fun MarketScreen(navController: NavController){
 
                             )
                         Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                            Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                         }
                         Button(
                             onClick = {
@@ -1047,11 +994,7 @@ fun MarketScreen(navController: NavController){
 
                             )
                         Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                            Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                         }
                         Button(
                             onClick = {
@@ -1076,7 +1019,7 @@ fun MarketScreen(navController: NavController){
                 //Herbs
 
                 Spacer(modifier = Modifier.height(40.dp))
-                Text(text = "HERBS", fontSize = 40.sp, fontWeight = FontWeight.Bold)
+                Text(text = "HERBS", fontSize = 40.sp, fontWeight = FontWeight.Bold, color = Color.Cyan)
 
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -1107,11 +1050,7 @@ fun MarketScreen(navController: NavController){
 
                             )
                         Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                            Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                         }
                         Button(
                             onClick = {
@@ -1160,11 +1099,7 @@ fun MarketScreen(navController: NavController){
 
                             )
                         Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                            Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                         }
                         Button(
                             onClick = {
@@ -1213,11 +1148,7 @@ fun MarketScreen(navController: NavController){
 
                             )
                         Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                            Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                         }
                         Button(
                             onClick = {
@@ -1266,11 +1197,7 @@ fun MarketScreen(navController: NavController){
 
                             )
                         Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                            Text(text = "View details...", fontSize = 10.sp, color = Color.Blue)
                         }
                         Button(
                             onClick = {
