@@ -580,7 +580,7 @@ fun MarketScreen(navController: NavController){
                     //Row
                     Row (modifier = Modifier.padding(start = 20.dp)){
                         Image(
-                            painter = painterResource(R.drawable.apples),
+                            painter = painterResource(R.drawable.mangoes),
                             contentDescription = "mangoes",
                             modifier = Modifier.width(200.dp).width(150.dp).clip(shape = RoundedCornerShape(10.dp)),
                             contentScale = ContentScale.FillWidth
@@ -628,7 +628,7 @@ fun MarketScreen(navController: NavController){
                     //Row
                     Row (modifier = Modifier.padding(start = 20.dp)){
                         Image(
-                            painter = painterResource(R.drawable.apples),
+                            painter = painterResource(R.drawable.pears),
                             contentDescription = "pears",
                             modifier = Modifier.width(200.dp).width(150.dp).clip(shape = RoundedCornerShape(10.dp)),
                             contentScale = ContentScale.FillWidth
@@ -676,7 +676,7 @@ fun MarketScreen(navController: NavController){
                     //Row
                     Row (modifier = Modifier.padding(start = 20.dp)){
                         Image(
-                            painter = painterResource(R.drawable.apples),
+                            painter = painterResource(R.drawable.plums),
                             contentDescription = "plums",
                             modifier = Modifier.width(200.dp).width(150.dp).clip(shape = RoundedCornerShape(10.dp)),
                             contentScale = ContentScale.FillWidth
@@ -724,7 +724,7 @@ fun MarketScreen(navController: NavController){
                     //Row
                     Row (modifier = Modifier.padding(start = 20.dp)){
                         Image(
-                            painter = painterResource(R.drawable.apples),
+                            painter = painterResource(R.drawable.passionfruit),
                             contentDescription = "passion",
                             modifier = Modifier.width(200.dp).width(150.dp).clip(shape = RoundedCornerShape(10.dp)),
                             contentScale = ContentScale.FillWidth
@@ -772,7 +772,7 @@ fun MarketScreen(navController: NavController){
                     //Row
                     Row (modifier = Modifier.padding(start = 20.dp)){
                         Image(
-                            painter = painterResource(R.drawable.apples),
+                            painter = painterResource(R.drawable.lemons),
                             contentDescription = "lemon",
                             modifier = Modifier.width(200.dp).width(150.dp).clip(shape = RoundedCornerShape(10.dp)),
                             contentScale = ContentScale.FillWidth

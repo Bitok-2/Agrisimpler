@@ -34,6 +34,7 @@ import com.enock.agrisimpler.ui.screens.products.ProductListScreen
 
 import com.enock.agrisimpler.ui.screens.management.ManagementScreen
 import com.enock.agrisimpler.ui.screens.market.ServiceScreen
+import com.enock.agrisimpler.ui.screens.products.AdminAddProductScreen
 import com.enock.agrisimpler.ui.screens.splash.SplashScreen
 import com.enock.agrisimpler.ui.screens.start.StartScreen
 
@@ -125,6 +126,9 @@ fun AppNavHost(
 
         composable(ROUT_PRODUCT_LIST) {
             ProductListScreen(navController, productViewModel)
+        }
+        composable(ROUT_ADMINADDPRODUCT) {
+            AdminAddProductScreen (navController, productViewModel)
         }
 
         composable(

@@ -51,7 +51,7 @@ import java.io.OutputStream
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProductListScreen(navController: NavController, viewModel: ProductViewModel) {
+fun AdminAddProductScreen(navController: NavController, viewModel: ProductViewModel) {
     val productList by viewModel.allProducts.observeAsState(emptyList())
     var showMenu by remember { mutableStateOf(false) }
     var searchQuery by remember { mutableStateOf("") }
@@ -118,7 +118,7 @@ fun ProductListScreen(navController: NavController, viewModel: ProductViewModel)
                 )
             }
         },
-        bottomBar = { BottomNavigationBar1(navController) }
+        bottomBar = { BottomNavigationBar11(navController) }
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -128,7 +128,7 @@ fun ProductListScreen(navController: NavController, viewModel: ProductViewModel)
         ) {
             LazyColumn {
                 items(filteredProducts.size) { index ->
-                    ProductItem(navController, filteredProducts[index], viewModel)
+                    ProductItem1(navController, filteredProducts[index], viewModel)
                 }
             }
         }
@@ -137,7 +137,7 @@ fun ProductListScreen(navController: NavController, viewModel: ProductViewModel)
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
-fun ProductItem(navController: NavController, product: Product, viewModel: ProductViewModel) {
+fun ProductItem1(navController: NavController, product: Product, viewModel: ProductViewModel) {
     val painter: Painter = rememberAsyncImagePainter(
         model = product.imagePath?.let { Uri.parse(it) } ?: Uri.EMPTY
     )
@@ -228,11 +228,35 @@ fun ProductItem(navController: NavController, product: Product, viewModel: Produ
                         }
                     }
 
-                    
+                    // Edit Product
+                    IconButton(
+                        onClick = {
+                            navController.navigate(editProductRoute(product.id))
+                        }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Edit,
+                            contentDescription = "Edit",
+                            tint = Color.White
+                        )
+                    }
+
+                    // Delete Product
+                    IconButton(
+                        onClick = { viewModel.deleteProduct(product) }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Delete,
+                            contentDescription = "Delete",
+                            tint = Color.White
+                        )
+                    }
+
+
 
                     // Download PDF
                     IconButton(
-                        onClick = { generateProductPDF(context, product) }
+                        onClick = { generateProductPDF1(context, product) }
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.download),
@@ -247,7 +271,7 @@ fun ProductItem(navController: NavController, product: Product, viewModel: Produ
 }
 
 @RequiresApi(Build.VERSION_CODES.Q)
-fun generateProductPDF(context: Context, product: Product) {
+fun generateProductPDF1(context: Context, product: Product) {
     val pdfDocument = PdfDocument()
     val pageInfo = PdfDocument.PageInfo.Builder(300, 500, 1).create()
     val page = pdfDocument.startPage(pageInfo)
@@ -315,7 +339,7 @@ fun generateProductPDF(context: Context, product: Product) {
 
 // Bottom Navigation Bar Component
 @Composable
-fun BottomNavigationBar1(navController: NavController) {
+fun BottomNavigationBar11(navController: NavController) {
     NavigationBar(
         containerColor = Color(0xFFA2B9A2),
         contentColor = Color.White
